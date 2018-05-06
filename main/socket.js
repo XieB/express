@@ -14,13 +14,13 @@ wss.on('connection', (ws, req) => {
 
     //绑定事件
     ws.on('message', message => {
-        console.log('received:%s', message);
+        log.info('received:%s', message);
     });
     ws.on('error',function(){
-
+        if (cons[userId]) delete cons[userId];
     });
     ws.on('close',function(){
-
+        if (cons[userId]) delete cons[userId];
     })
 });
 
